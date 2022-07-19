@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,13 +18,13 @@ namespace Class4
 
             Console.WriteLine(m1["USD"]);
 
-            List<Money> list = new List<Money>();
-            list.Add(new Money(1, "USD"));
-            list.Add(new Money(2, "USD"));
+            List<Money> list1 = new List<Money>();
+            list1.Add(new Money(1, "USD"));
+            list1.Add(new Money(2, "USD"));
 
-            var a = list.Where(l => l["USD"] == 1.00M).ToList();
+            var a = list1.Where(l => l["USD"] == 1.00M).ToList();
 
-            var b = from l in list where l["USD"] == 1.00M select l;
+            var b = from l in list1 where l["USD"] == 1.00M select l;
 
 
 
@@ -46,6 +45,68 @@ namespace Class4
             var l = new List<Moneyold>();
             l.Add(m1);
             var v2 = (l.[0] as Moneyold).Value;*/
+
+
+
+            List<string> list = new List<string>
+            {
+                "Marc",
+                "Bob",
+                "Ana",
+                "Lara",
+                "Joe",
+                "Ariel"
+            };
+            list.Insert(2, "Karl");
+
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+            Console.WriteLine("---------------------");
+            string s1 = list.Find(match: x => x[0] == 'A');
+            Console.WriteLine("First 'A': " + s1);
+            string s2 = list.FindLast(match: x => x[0] == 'A');
+            Console.WriteLine("Last 'A': " + s2);
+            int pos1 = list.FindIndex(x => x[0] == 'A');
+            Console.WriteLine("First position 'A': " + pos1);
+            int pos2 = list.FindLastIndex(x => x[0] == 'A');
+            Console.WriteLine("Last position 'A': " + pos2);
+            List<string> list2 = list.FindAll(x => x.Length == 5);
+            Console.WriteLine("---------------------");
+
+            foreach (string obj in list2)
+            {
+                Console.WriteLine(obj);
+            }
+            list.RemoveAt(1);
+            Console.WriteLine("---------------------");
+
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+            list.Remove("Ana");
+            Console.WriteLine("---------------------");
+
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+            list.RemoveAll(x => x[0] == 'M');
+            Console.WriteLine("---------------------");
+
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
+            list.RemoveRange(1, 3);
+            Console.WriteLine("---------------------");
+
+            foreach (string obj in list)
+            {
+                Console.WriteLine(obj);
+            }
 
 
         }
